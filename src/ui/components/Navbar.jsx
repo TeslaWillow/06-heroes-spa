@@ -1,6 +1,15 @@
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 
 export const Navbar = () => {
+
+    const navigate = useNavigate();
+
+    const onLogout = () => {
+        navigate('/marvel', {
+            replace: true,
+        });
+    };
+
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
            <div className="container-fluid">
@@ -47,6 +56,7 @@ export const Navbar = () => {
                         to="/login"
                         activeclassname="active"
                         exact="true"
+                        onClick={() => onLogout()}
                     >
                         Logout
                     </NavLink>
